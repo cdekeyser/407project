@@ -1,0 +1,27 @@
+/* Empty. Add your own CSS if you like */
+#start_button {
+  margin-top: 25vw;
+  margin-left: 47vw;
+  background-color: lightblue; /* background color of button becomes light blue */
+}
+
+div.image {
+  margin-top: 2vw;
+  margin-left: 41vw;
+  margin-bottom: 2vw;
+}
+
+#next_button {
+  margin-top: 10vw;
+  margin-left: 46vw;
+}
+
+#done_button {
+  margin-top: 10vw;
+  margin-left: 47vw;
+}
+
+#display {
+  margin-top: 10vw;
+  margin-left: 44vw;
+}

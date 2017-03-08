@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="quizApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+  </head>
+  <body>
+    <div ng-controller="view1Ctrl">
+      <ion-nav-view animation="forward">
+      </ion-nav-view>
+    </div>
+    <!--code for view 1-->
+    <script id="view1" type="text/ng-template">
+      <ion-view>
+        <ion-header-bar class="bar-stable">
+          <h1 class="title">Quiz App</h1>
+          </ion-header-bar>
+          <ion-content has-header="true" padding="true">
+          <button class="button" id="start_button" ng-click="toView2State()">Start</button>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <!--code for view 2-->
+    <script id="view2" type="text/ng-template">
+      <ion-view>
+        <ion-header-bar class="bar-stable">
+          <h1 class="title">Image Question</h1>
+        </ion-header-bar>
+        <ion-content has-header="true" padding="true">
+        <div class="image">
+          <img 			src="https://cdn2.littlethings.com/app/uploads/2016/02/mathproblem_850px_3-600x670.jpg"
+                    style="width:200px;height:200px;">
+        </div>
+        <button class="button button-full" ng-click="toView3State(0)">10</button>
+
+        <button class="button button-full" ng-click="toView3State(1)">7</button>
+
+        <button class="button button-full" ng-click="toView3State(0)">6</button>
+
+      </ion-content>
+     </ion-view>
+    </script>
+
+    <!--code for view 3-->
+    <script id="view3" type="text/ng-template">
+      <ion-view>
+        <ion-header-bar class="bar-stable">
+          <h1 class="title">Text Question</h1>
+        </ion-header-bar>
+        <ion-content has-header="true" padding="true">
+          <h3>What professional football team resides in the state of Wisconsin?</h3>
+          <div class="bottom">
+            <div style="float: left; width: 100%;">
+              <label class="item item-input">
+                <input type="text" name="answer" id="answer-textarea"
+                       ng-model="$parent.answer" placeholder="Answer">
+              </label>
+            </div>
+          </div>
+          <button class="button" id="next_button" ng-click="toView4State()">Next</button>
+        </ion-content>
+      </ion-view>
+    </script>
+
+  <!--code for view 4-->
+    <script id="view4" type="text/ng-template">
+      <ion-view>
+        <ion-header-bar class="bar-stable">
+          <h1 class="title">Results</h1>
+        </ion-header-bar>
+        <ion-content has-header="true" padding="true">
+          <p id="display">{{display}}</p>
+          <button class="button" id="done_button" ng-click="toView1State()">Done</button>
+        </ion-content>
+      </ion-view>
+    </script>
+
+
+  </body>
+</html>
